@@ -27,6 +27,9 @@
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14
 
+
+#define GRAVE_ESC_CTRL_OVERRIDE
+
 /*
  * Keyboard Matrix Assignments
  *
@@ -108,4 +111,5 @@
 #    define DRIVER_ADDR_1 0b1010000
 #    define DRIVER_COUNT 1
 #    define DRIVER_LED_TOTAL 61
+
 #endif
