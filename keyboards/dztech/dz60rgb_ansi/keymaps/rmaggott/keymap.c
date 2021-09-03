@@ -1,5 +1,45 @@
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+    KC_RBG_SOLID_PURPLE = SAFE_RANGE,
+    KC_RBG_EVA_BORDER
+};
+
+static inline void handleCC_RBG_SOLID_PURPLE(uint16_t keycode, keyrecord_t *record);
+static inline void handleCC_RBG_EVA_BORDER(uint16_t keycode, keyrecord_t *record);
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_RBG_SOLID_PURPLE:
+            handleCC_RBG_SOLID_PURPLE(keycode, record);
+            break;
+
+        case KC_RBG_EVA_BORDER:
+            handleCC_RBG_EVA_BORDER(keycode, record);
+            break;
+        default:
+            break;
+    }
+    return true;
+};
+
+
+static inline void handleCC_RBG_SOLID_PURPLE(uint16_t keycode, keyrecord_t *record){
+    if (record->event.pressed) {
+        // rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_saph_static_purple);
+        rgb_matrix_mode(RGB_MATRIX_CUSTOM_saph_static_purple);
+    } else {
+        //
+    }
+}
+
+static inline void handleCC_RBG_EVA_BORDER(uint16_t keycode, keyrecord_t *record){
+    if (record->event.pressed) {
+        // rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_saph_eva_border);
+        rgb_matrix_mode(RGB_MATRIX_CUSTOM_saph_eva_border);
+    } else {
+    }
+}
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_60_ansi(
         KC_GESC,        KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,

@@ -27,7 +27,6 @@
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14
 
-
 #define GRAVE_ESC_CTRL_OVERRIDE
 
 /*
